@@ -7,6 +7,22 @@ Broker:
 - Open files with appropriate access on Windows. Closes #3119.
 - Don't allow invalid response topic values.
 - Fix some strict protocol compliance issues. Closes #3052.
+- Add support for broker created topic aliases. Topics are allocated on a
+  first come first serve basis.
+- Add support for bridges to allow remote brokers to create topic aliases when
+  running in MQTT v5 mode.
+- Add MOSQ_EVT_CONNECT, to allow plugins to know when a client has
+  successfully authenticated to the broker.
+- Add connection-state example plugin to demonstrate MOSQ_EVT_CONNECT.
+- Plugins on non-Windows platforms now no longer make their symbols globally
+  available, which means they are self contained.
+- Increase maximum connection count on Windows from 2048 to 8192 where
+  supported. Closes #2122.
+- Add kqueue support.
+- Enforce receive maximum on MQTT v5.
+- Report on what compile time options are enabled. Closes #2193.
+- Add `--tls-keylog` option which can be used to generate a file that can be
+  used by wireshark to decrypt TLS traffic for debugging purposes. Closes #1818.
 
 Client library:
 - Fix cmake build on OS X. Closes #3125.

@@ -476,6 +476,11 @@ struct mosquitto_db{
 	int epollfd;
 #endif
 	struct mosquitto_message_v5 *plugin_msgs;
+#ifdef WITH_TLS
+	char *tls_keylog; /* This can't be in the config struct because it is used
+						 before the config is allocated. Config probably
+						 shouldn't be separately allocated. */
+#endif
 };
 
 enum mosquitto__bridge_direction{
